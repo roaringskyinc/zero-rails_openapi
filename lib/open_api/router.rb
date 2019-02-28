@@ -15,7 +15,8 @@ module OpenApi
             all_routes = Rails.application.routes.routes
             require 'action_dispatch/routing/inspector'
             inspector = ActionDispatch::Routing::RoutesInspector.new(all_routes)
-            inspector.format(ActionDispatch::Routing::ConsoleFormatter::Sheet.new, {})
+            formatter = ActionDispatch::Routing::ConsoleFormatter::Sheet.new
+            inspector.format(formatter, {})
             # :nocov:
           end
     end
